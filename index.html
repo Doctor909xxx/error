@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium File Archive</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 id="mainTitle">🚀 Cloud File Downloader</h1>
+            <div class="accent-line"></div>
+        </header>
+
+        <section class="instruction-card">
+            <h3>📖 Cara Mendownload</h3>
+            <ol>
+                <li>Pilih file yang ingin kamu unduh dari daftar di bawah.</li>
+                <li>Klik tombol <strong>"Get File"</strong> atau <strong>"Download"</strong>.</li>
+                <li>Untuk file Premium, masukkan <strong>Access Key</strong> yang valid.</li>
+                <li>Jika benar, file akan otomatis terunduh.</li>
+            </ol>
+            <p class="key-info">⚠️ Butuh Key? Silakan hubungi <strong>Owner</strong> melalui menu kontak di bawah.</p>
+        </section>
+        
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Cari file favoritmu...">
+        </div>
+        
+        <div class="section-header" style="margin-top: 30px;">
+            <h2 style="color: #00ff00;"><i class="fas fa-gift"></i> Free Files</h2>
+            <div style="height: 3px; width: 50px; background: #00ff00; border-radius: 2px;"></div>
+        </div>
+        <div id="fileListFree" class="file-grid"></div>
+
+        <hr style="border: 0; border-top: 1px solid #333; margin: 40px 0;">
+
+        <div class="section-header">
+            <h2 style="color: var(--accent-color);"><i class="fas fa-crown"></i> Premium Files</h2>
+            <div style="height: 3px; width: 50px; background: var(--accent-color); border-radius: 2px;"></div>
+        </div>
+        <div id="fileListPremium" class="file-grid"></div>
+
+        <section class="social-section">
+            <h3>Hubungi Owner / Join Komunitas</h3>
+            <div class="social-links">
+                <a href="https://wa.me/6285136572646" target="_blank" class="social-card wa"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://whatsapp.com/channel/LinkSaluranKamu" target="_blank" class="social-card channel"><i class="fas fa-bullhorn"></i> Saluran WA</a>
+                <a href="https://tiktok.com/@keynara.gt" target="_blank" class="social-card tt"><i class="fab fa-tiktok"></i> TikTok</a>
+            </div>
+        </section>
+
+        <footer class="custom-footer">
+            <p id="customText">Terima kasih telah berkunjung. Website ini dibuat untuk memudahkan berbagi file dengan keamanan key sistem.</p>
+            <p class="copyright">&copy; 2024 YourProject Name. All Rights Reserved.</p>
+        </footer>
+    </div>
+
+    <div id="keyModal" class="modal">
+        <div class="modal-content">
+            <h3>🔑 Masukkan Access Key</h3>
+            <p>File ini diproteksi, masukkan key untuk melanjutkan.</p>
+            <input type="text" id="keyInput" placeholder="Ketik Key di sini...">
+            <div class="modal-buttons">
+                <button onclick="closeAllModals()" class="btn-cancel">Batal</button>
+                <button onclick="validateKey()" class="btn-confirm">Konfirmasi</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="qrisModal" class="modal">
+        <div class="modal-content">
+            <h3>⚠️ Pembayaran Diperlukan</h3>
+            <p>Untuk mendapatkan key file ini, silakan transfer sebesar:</p>
+            <h2 id="priceDisplay" style="color: var(--accent-color); margin: 10px 0;"></h2>
+            <div class="qris-container">
+                <img src="https://i.ibb.co.com/SwLs49Yk/IMG-20260418-002637.jpg" alt="QRIS Payment" id="qrisImage">
+            </div>
+            <div class="payment-info">
+                <p>Scan QRIS di atas dan kirim bukti transfer ke WhatsApp owner.</p>
+            </div>
+            <div class="modal-buttons">
+                <button onclick="closeQris()" class="btn-cancel">Tutup</button>
+                <button onclick="redirectToWA()" class="btn-confirm"><i class="fab fa-whatsapp"></i> Kirim Bukti</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

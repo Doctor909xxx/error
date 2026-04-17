@@ -1,0 +1,194 @@
+:root {
+    --accent-color: #00ffcc; /* Default Hijau */
+    --bg-dark: #0a0a0a;
+    --card-bg: #161616;
+    --text-main: #e0e0e0;
+}
+
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-main);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.container {
+    width: 100%;
+    max-width: 900px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+h1 { font-size: 2rem; margin-bottom: 5px; }
+
+.accent-line {
+    height: 4px;
+    width: 100px;
+    background-color: var(--accent-color);
+    margin: 10px auto 30px;
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--accent-color);
+}
+
+/* Instruction Card */
+.instruction-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    text-align: left;
+    border-left: 5px solid var(--accent-color);
+    margin-bottom: 30px;
+}
+
+.key-info { color: var(--accent-color); font-weight: bold; }
+
+/* Search Box */
+#searchInput {
+    width: 100%;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #333;
+    background: #1e1e1e;
+    color: white;
+    font-size: 1rem;
+    transition: 0.3s;
+    outline: none;
+}
+
+#searchInput:focus { border-color: var(--accent-color); box-shadow: 0 0 10px rgba(0, 255, 204, 0.2); }
+
+/* File Grid */
+.file-grid { display: grid; gap: 15px; margin-top: 20px; }
+
+.file-card {
+    background: var(--card-bg);
+    padding: 20px;
+    border-radius: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid #222;
+    transition: all 0.3s ease;
+}
+
+.file-card:hover {
+    border-color: var(--accent-color);
+    transform: scale(1.02);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+}
+
+.btn-get {
+    background-color: var(--accent-color);
+    color: #000;
+    padding: 10px 25px;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.btn-get:active { transform: scale(0.9); }
+
+/* Social Section */
+.social-links {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.social-card {
+    padding: 12px 20px;
+    border-radius: 8px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.wa { background: #25d366; }
+.channel { background: #0088cc; }
+.tt { background: #000000; border: 1px solid #fff; }
+
+.social-card:hover { filter: brightness(1.2); transform: translateY(-3px); }
+
+/* Modal */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.85);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: #1e1e1e;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    width: 90%;
+    max-width: 400px;
+    border: 1px solid var(--accent-color);
+}
+
+#keyInput {
+    width: 100%;
+    padding: 12px;
+    margin: 20px 0;
+    border-radius: 8px;
+    border: 1px solid #444;
+    background: #121212;
+    color: white;
+}
+
+.modal-buttons { display: flex; gap: 10px; }
+.btn-cancel, .btn-confirm {
+    flex: 1; padding: 10px; border-radius: 8px; cursor: pointer; border: none; font-weight: bold;
+}
+.btn-confirm { background: var(--accent-color); color: #000; }
+.btn-cancel { background: #444; color: white; }
+
+/* Custom Footer */
+.custom-footer { margin-top: 50px; padding: 20px; border-top: 1px solid #222; color: #888; font-size: 0.9rem; }
+
+/* Container untuk QRIS - Menjaga gambar tetap di tengah */
+.qris-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0; /* Jarak atas-bawah */
+}
+
+/* Pengaturan Gambar QRIS - Biar Kotak (1:1) dan Sedang */
+#qrisImage {
+    width: 200px; /* Lebar gambar (bisa kamu atur, misal: 150px - 250px) */
+    height: 200px; /* Tinggi harus sama dengan lebar biar 1:1 (kotak) */
+    object-fit: cover; /* Trik kunci: gambar akan dipotong otomatis biar pas kotak tanpa penyok */
+    object-position: center; /* Fokus pemotongan di tengah gambar */
+    border-radius: 12px; /* Sudut melengkung */
+    border: 3px solid var(--accent-color); /* Bingkai warna sesuai tema */
+    box-shadow: 0 0 15px rgba(0, 255, 204, 0.3); /* Efek cahaya sedikit */
+    transition: transform 0.3s ease; /* Animasi zoom pas di-hover */
+}
+
+/* Efek pas kursor di atas gambar */
+#qrisImage:hover {
+    transform: scale(1.05); /* Sedikit membesar */
+}
